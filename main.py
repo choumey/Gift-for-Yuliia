@@ -5,39 +5,21 @@ st.set_page_config(page_title="Для Юли 🩷", page_icon="💌", layout="ce
 
 st.markdown("""
     <style>
-    .main {
-        background-color: #4B3621;
+    .stApp {
+        background-color: #4B3621; 
+        
     }
+    
+    
+    h1, h3, p, span, div {
+        color: #F5F5DC !important; 
+    }
+
     .stButton>button {
-        background-color: #ffb7c5;
+        background-color: #8B4513;
         color: white;
         border-radius: 20px;
-        border: none;
-        padding: 10px 25px;
-        font-size: 20px;
-        transition: 0.3s;
-    }
-    .stButton>button:hover {
-        background-color: #ff8fa3;
-        border: none;
-        color: white;
-    }
-    .envelope-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 50px;
-    }
-    .heart {
-        font-size: 50px;
-        color: #ff4d6d;
-        animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.2); }
-        100% { transform: scale(1); }
+        border: 2px solid #F5F5DC;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -77,3 +59,4 @@ else:
 # Футер
 
 st.markdown("<br><br><div style='text-align: center; color: #888;'>от Васи с любовью</div>", unsafe_allow_html=True)
+
