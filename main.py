@@ -6,7 +6,7 @@ st.set_page_config(page_title="Для Юли 🩷", page_icon="💌", layout="ce
 st.markdown("""
     <style>
     .main {
-        background-color: #fff5f8;
+        background-color: #4B3621;
     }
     .stButton>button {
         background-color: #ffb7c5;
@@ -49,7 +49,7 @@ if 'opened' not in st.session_state:
 
 if not st.session_state.opened:
     st.markdown("<div class='envelope-container'><div class='heart'>❤️</div></div>", unsafe_allow_html=True)
-    st.write("<div style='text-align: center; margin-bottom: 20px;'>Нажми на кнопку, чтобы открыть конверт</div>", unsafe_allow_html=True)
+    st.write("<div style='text-align: center; margin-bottom: 20px;'>Нажми на кнопку, чтобы открыть конвертик</div>", unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
@@ -60,7 +60,7 @@ if not st.session_state.opened:
 
 else:
     # Анимация "загрузки"
-    with st.spinner('Открываю нежность...'):
+    with st.spinner('Сюрприз вот вот покажется...'):
         time.sleep(1.5)
     
     st.markdown("<div style='text-align: center;'><h3>С 8 Марта! ✨</h3></div>", unsafe_allow_html=True)
@@ -75,4 +75,5 @@ else:
         st.rerun()
 
 # Футер
+
 st.markdown("<br><br><div style='text-align: center; color: #888;'>от Васи с любовью</div>", unsafe_allow_html=True)
