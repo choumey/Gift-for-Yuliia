@@ -1,63 +1,115 @@
 import streamlit as st
 import time
 
-st.set_page_config(page_title="Для Юли 🩷", page_icon="💌", layout="centered")
 
+st.set_page_config(
+    page_title="Для Юли 🩷", 
+    page_icon="💌", 
+    layout="centered"
+)
+#css
 st.markdown("""
     <style>
+    /* Главный фон всей страницы */
     .stApp {
-        background-color: #4B3621; 
-        
-    }
-    
-    
-    h1, h3, p, span, div {
-        color: #F5F5DC !important; 
+        background-color: #3E2723;
     }
 
+    /* Стиль заголовков */
+    h1, h3 {
+        color: #F5F5DC !important;
+        font-family: 'Georgia', serif;
+        text-align: center;
+    }
+
+    /* Текст подписи */
+    .footer-text {
+        text-align: center;
+        color: #D7CCC8;
+        font-size: 14px;
+        margin-top: 50px;
+    }
+
+    /* Контейнер для письма (эффект бумаги на темном фоне) */
+    .letter-box {
+        background-color: rgba(245, 245, 220, 0.05);
+        border: 1px solid rgba(215, 204, 200, 0.2);
+        border-radius: 15px;
+        padding: 20px;
+        transition: all 0.5s ease-in-out;
+    }
+
+    /* Кнопка "Открыть" */
     .stButton>button {
-        background-color: #8B4513;
-        color: white;
-        border-radius: 20px;
-        border: 2px solid #F5F5DC;
+        background-color: #8D6E63;
+        color: #F5F5DC;
+        border-radius: 25px;
+        border: 1px solid #D7CCC8;
+        padding: 10px 30px;
+        width: 100%;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    
+    .stButton>button:hover {
+        background-color: #5D4037;
+        border: 1px solid #F5F5DC;
+        color: #FFFFFF;
+    }
+
+    /* Центровка контента */
+    .center-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
     </style>
     """, unsafe_allow_html=True)
 
-st.write("<div style='text-align: center;'><h1>Тебе пришло письмо! 💌</h1></div>", unsafe_allow_html=True)
-
+# 3. Логика приложения
 if 'opened' not in st.session_state:
     st.session_state.opened = False
 
-if not st.session_state.opened:
-    st.markdown("<div class='envelope-container'><div class='heart'>❤️</div></div>", unsafe_allow_html=True)
-    st.write("<div style='text-align: center; margin-bottom: 20px;'>Нажми на кнопку, чтобы открыть конверт</div>", unsafe_allow_html=True)
-    
-    col1, col2, col3 = st.columns([1, 1, 1])
-    with col2:
-        if st.button("відкрити листівку"):
-            st.session_state.opened = True
-            st.balloons() 
-            st.rerun()
+# Заголовок
+st.markdown("<h1>Тебе пришло таинственное письмо... 💌</h1>", unsafe_allow_html=True)
+st.write("---")
 
-else:
-    # Анимация "загрузки"
-    with st.spinner('Сюрприз на подходе...'):
-        time.sleep(1.5)
+# 4. Контент (Конверт или Письмо)
+if not st.session_state.opened:
+    # Состояние ЗАКРЫТО
+    st.markdown("<div class='center-content'><br><br></div>", unsafe_allow_html=True)
     
-    st.markdown("<div style='text-align: center;'><h3>С 8 Марта! ✨</h3></div>", unsafe_allow_html=True)
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        st.markdown("<h3 style='font-style: italic;'>Нажми, чтобы заглянуть внутрь</h3>", unsafe_allow_html=True)
+        if st.button("Открыть ✉️"):
+            st.session_state.opened = True
+            st.balloons()
+            st.rerun()
+else:
+
+    with st.spinner('Разворачиваю...'):
+        time.sleep(1)
+    
+    st.markdown("<div class='letter-box'>", unsafe_allow_html=True)
     
     try:
         st.image("letter.png", use_container_width=True)
     except:
-        st.error("Файл 'letter.png' не найден. Положи картинку в папку с кодом!")
+        st.error("Ошибка: Файл 'letter.png' не найден в репозитории. Проверь название!")
 
-    if st.button("Закрыть письмо"):
-        st.session_state.opened = False
-        st.rerun()
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    st.write("")
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col2:
+        if st.button("Закрыть"):
+            st.session_state.opened = False
+            st.rerun()
 
-# Футер
+# 5. Футер
+st.markdown("<div class='footer-text'>Специально для Юли • от Васи</div>", unsafe_allow_html=True)
 
-st.markdown("<br><br><div style='text-align: center; color: #888;'>от Васи с любовью</div>", unsafe_allow_html=True)
 
 
