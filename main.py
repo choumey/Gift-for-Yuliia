@@ -72,7 +72,7 @@ if 'opened' not in st.session_state:
     st.session_state.opened = False
 
 # Заголовок
-st.markdown("<h1>Тебе пришло таинственное письмо... 💌</h1>", unsafe_allow_html=True)
+st.markdown("<h1>не в бумажном виде..., но письмо на месте! 💌</h1>", unsafe_allow_html=True)
 st.write("---")
 
 # 4. Контент (Конверт или Письмо)
@@ -82,7 +82,7 @@ if not st.session_state.opened:
     
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        st.markdown("<h3 style='font-style: italic;'>Нажми, чтобы заглянуть внутрь</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='font-style: italic;'>давай глянем что внутри хохох</h3>", unsafe_allow_html=True)
         if st.button("Открыть ✉️"):
             st.session_state.opened = True
             st.balloons()
@@ -109,7 +109,8 @@ else:
             st.rerun()
 
 # 5. Футер
-st.markdown("<div class='footer-text'>Специально для Юли • от Васи</div>", unsafe_allow_html=True)
+st.markdown("<div class='footer-text'>для Юли  •  от Васи</div>", unsafe_allow_html=True)
+
 
 
 
