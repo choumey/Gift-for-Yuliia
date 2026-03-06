@@ -31,18 +31,18 @@ if 'opened' not in st.session_state:
 
 if not st.session_state.opened:
     st.markdown("<div class='envelope-container'><div class='heart'>❤️</div></div>", unsafe_allow_html=True)
-    st.write("<div style='text-align: center; margin-bottom: 20px;'>Нажми на кнопку, чтобы открыть конвертик</div>", unsafe_allow_html=True)
+    st.write("<div style='text-align: center; margin-bottom: 20px;'>Нажми на кнопку, чтобы открыть конверт</div>", unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns([1, 1, 1])
     with col2:
-        if st.button("Открыть ✉️"):
+        if st.button("відкрити листівку"):
             st.session_state.opened = True
             st.balloons() 
             st.rerun()
 
 else:
     # Анимация "загрузки"
-    with st.spinner('Сюрприз вот вот покажется...'):
+    with st.spinner('Сюрприз на подходе...'):
         time.sleep(1.5)
     
     st.markdown("<div style='text-align: center;'><h3>С 8 Марта! ✨</h3></div>", unsafe_allow_html=True)
@@ -59,4 +59,5 @@ else:
 # Футер
 
 st.markdown("<br><br><div style='text-align: center; color: #888;'>от Васи с любовью</div>", unsafe_allow_html=True)
+
 
